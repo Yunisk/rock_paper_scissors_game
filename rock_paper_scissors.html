@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <script src="./rock_paper_scissors.js"></script>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mooli&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Welcome to Boulder Scroll Sword!</h1>
+      <h2>Select a Button to Start</h2>
+    </div>
+    <div class="selection">
+      <button type="button" class="rock btn btn-outline-primary">
+        <img src="./rock.png" />
+      </button>
+      <button type="button" class="paper btn btn-outline-success">
+        <img src="./scroll.png" />
+      </button>
+      <button type="button" class="scissors btn btn-outline-danger">
+        <img src="./sword.png" />
+      </button>
+    </div>
+    <h1>Current Score:</h1>
+    <div class="results">
+      <p class="player">Player:</p>
+      <p class="computer">Computer:</p>
+    </div>
+    <p class="feedback">Feedback:</p>
+    <button type="button" class="btn btn-light playagain">Play Again</button>
+    <h1 class="currentround"></h1>
+
+    <script src="./domrps.js"></script>
+  </body>
 </html>

@@ -48,21 +48,27 @@ const getComputerChoice = () => {
   
   let player = 0;
   let computer = 0;
+
+  const playerScore = document.querySelector('.player');
+  const computerScore = document.querySelector('.computer');
+  const feedback = document.querySelector('.feedback');
+  let roundsPlayed = 0;
   
   const game = () => {
     let i = 0;
     while (i < 5) {
-      let userInput = prompt("Enter your selection:");
-      userInput = inputValidation(userInput);
+      let userInput = "";
       const result = playRound(userInput, getComputerChoice());
       if (result.includes("win")) {
         player++;
-        console.log(result);
+        playerScore.textContent = (player);
+        feedback.textContent = (result + " " + `Computer Selection: ${getComputerChoice()} Player Selection: ${userInput}`);
       } else if (result.includes("lose")) {
         computer++;
-        console.log(result);
+        computerScore.textContent = (computer);
+        feedback.textContent = (result + " " + `Computer Selection: ${getComputerChoice()} Player Selection: ${userInput}`);
       } else {
-        console.log(result);
+        feedback.textContent = (result + " " + `Computer Selection: ${getComputerChoice()} Player Selection: ${userInput}`);
       }
       i++;
     }
@@ -71,25 +77,34 @@ const getComputerChoice = () => {
   
   const winnerOrLoser = (player, computer) => {
     if (player > computer) {
-      console.log("You win!");
+      feedback.textContent=("You win!");
     } else if (player < computer) {
-      console.log("You lose!");
+      feedback.textContent=("You lose!");
     } else {
-      console.log("It's a tie!");
+      feedback.textContent=("It's a tie!");
     }
   };
   
-  const inputValidation = (userInput) => {
-    while (
-      userInput.toLowerCase() !== "rock" &&
-      userInput.toLowerCase() !== "paper" &&
-      userInput.toLowerCase() !== "scissors"
-    ) {
-      console.log("Please enter a valid selection.");
-      userInput = prompt("Enter your selection:");
-    }
-    return userInput;
-  };
-  
-  game();
-  winnerOrLoser(player, computer);
+
+  const rock = document.querySelector('.rock');
+  const paper = document.querySelector('.paper');
+  const scissors = document.querySelector('.scissors');
+
+
+  rock.addEventListener('click', ()=>{
+    userChoice = 'rock';
+    game();
+  })
+
+  paper.addEventListener('click', ()=>{
+    userChoice = 'paper';
+    game();
+  })
+
+  scissors.addEventListener('click', ()=>{
+    userChoice = 'scissors';
+    game();
+  })
+
+  // game();
+  // winnerOrLoser(player, computer);
